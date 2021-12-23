@@ -14,6 +14,13 @@
                         </div>
                     @endif
 
+                    @role('admin')
+                    Ini untuk Admin
+                    @endrole
+
+                    @role('pengguna')
+                    Ini untuk pengguna
+                    @endrole
                     {{ __('You are logged in!') }}
                 </div>
             </div>
