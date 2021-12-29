@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePeminjamenTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('peminjamen', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('kode_pinjam')->unsigned();
+            $table->integer('no_anggota');
+            $table->integer('kode_petugas');
+            $table->foreign('kode_pinjam')->references('id')
+            ->on('dtl_pinjams')->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('peminjamen');
+    }
+}

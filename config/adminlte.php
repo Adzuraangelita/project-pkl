@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Peminjaman Buku Perpustkaan</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/profile.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -252,20 +252,18 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text' => 'pages',
-            'url'  => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label-color' => 'succes',
-        ],
-        [
             'text' => 'buku',
             'url' => 'admin/buku',
             'icon' => 'far fa-fw fa-file',
         ],
         [
-            'text' => 'pengarang',
-            'url' => 'admin/pengarang',
+            'text' => 'anggota',
+            'url' => 'admin/anggota',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'peminjaman buku',
+            'url' => 'admin/peminjaman',
             'icon' => 'far fa-fw fa-file',
         ],
         [
