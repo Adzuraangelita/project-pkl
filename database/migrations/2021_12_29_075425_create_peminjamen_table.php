@@ -15,11 +15,9 @@ class CreatePeminjamenTable extends Migration
     {
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('kode_pinjam')->unsigned();
+            $table->integer('kode_pinjam');
             $table->integer('no_anggota');
             $table->integer('kode_petugas');
-            $table->foreign('kode_pinjam')->references('id')
-            ->on('dtl_pinjams')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

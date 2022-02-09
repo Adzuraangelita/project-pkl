@@ -4,11 +4,11 @@
 
 @section('content_header')
 
-Dashboard
+    Dashboard
 
 @stop
 @section('content')
-Welcom to this beautiful admin panel
+    Welcom to this beautiful admin panel
 
 @stop
 @section('css')

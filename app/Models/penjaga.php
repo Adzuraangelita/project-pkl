@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class penjaga extends Model
 {
     use HasFactory;
+    protected $table = "penjaga";
+    protected $fillable = ['kode_petugas', 'nama_petugas', 'alamat' . 'jk'];
+    protected $visible = ['kode_petugas', 'nama_petugas', 'alamat' . 'jk'];
+    public $timestamps = true;
+
+    public function peminjaman()
+    {
+        return $this->belongsTo('App\Models\peminjaman', 'no_anggota');
+    }
+
 }

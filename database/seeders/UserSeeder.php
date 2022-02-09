@@ -16,15 +16,18 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $admin = Role::create ([
+        $admin = Role::create([
             'name' => 'admin',
             'display_name' => 'Izin Admin',
         ]);
-        $pengguna = Role::create ([
+        $pengguna = Role::create([
             'name' => 'pengguna',
             'display_name' => 'Izin Pengguna',
         ]);
-         
+        $users = Role::create([
+            'name' => 'users',
+            'display_name' => 'Izin Users',
+        ]);
 
         $kasir = Role::create([
             'name' => 'kasir',
@@ -43,6 +46,13 @@ class UserSeeder extends Seeder
         $userPengguna->password = Hash::make('12345678');
         $userPengguna->save();
         $userPengguna->attachRole($pengguna);
+
+        $userUsers = new User();
+        $userUsers->name = 'User Sila';
+        $userUsers->email = 'user@gmail.com';
+        $userUsers->password = Hash::make('12345678');
+        $userUsers->save();
+        $userUsers->attachRole($users);
 
         $userKasir1 = new User();
         $userKasir1->name = 'riva';

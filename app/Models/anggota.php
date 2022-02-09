@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class anggota extends Model
 {
     use HasFactory;
+    protected $table = "anggotas";
+    protected $fillable = ['no_anggota', 'nama', 'alamat'];
+    protected $visible = ['no_anggota', 'nama', 'alamat'];
+    public $timestamps = true;
+
+    public function peminjaman()
+    {
+        return $this->belongsTo('App\Models\Peminjaman', 'no_anggota');
+    }
 }

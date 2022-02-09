@@ -14,7 +14,9 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        //
+        $anggota = Anggota::with('peminjamen')->get();
+        return view('anggota.index', compact('anggota'));
+
     }
 
     /**
@@ -24,7 +26,8 @@ class AnggotaController extends Controller
      */
     public function create()
     {
-        //
+        return view('anggota.create');
+
     }
 
     /**
@@ -35,7 +38,19 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'no_anggota' => 'required',
+            'nama' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $anggota = new Anggota;
+        $anggota->no_anggota = $request->no_anggota;
+        $anggota->nama = $request->nama;
+        $anggota->alamat = $request->alamat;
+        $anggota->save();
+        return redirect()->route('anggota.index');
+
     }
 
     /**
@@ -46,7 +61,9 @@ class AnggotaController extends Controller
      */
     public function show(anggota $anggota)
     {
-        //
+        $anggota = Anggota::findOrFail($id);
+        return view('$anggota.show', compact('$anggota'));
+
     }
 
     /**
@@ -57,7 +74,9 @@ class AnggotaController extends Controller
      */
     public function edit(anggota $anggota)
     {
-        //
+        $anggota = Anggota::findOrFail($id);
+        return view('anggota.edit', compact('anggota'));
+
     }
 
     /**
@@ -69,7 +88,19 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, anggota $anggota)
     {
-        //
+        $validated = $request->validate([
+            'no_anggota' => 'required',
+            'nama' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $anggota = Anggota::findOrFail($id);
+        $anggota->no_anggota = $request->no_anggota;
+        $anggota->nama = $request->nama;
+        $anggota->alamat = $request->alamat;
+        $anggota->save();
+        return redirect()->route('anggota.index');
+
     }
 
     /**
@@ -80,6 +111,9 @@ class AnggotaController extends Controller
      */
     public function destroy(anggota $anggota)
     {
-        //
+        $anggota = Anggota::findOrFail($id);
+        $anggota->delete();
+        return redirect()->route('anggota.index');
+
     }
 }

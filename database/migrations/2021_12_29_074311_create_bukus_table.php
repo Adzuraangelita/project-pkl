@@ -15,8 +15,6 @@ class CreateBukusTable extends Migration
     {
         Schema::create('bukus', function (Blueprint $table) {
             $table->id();
-            
-            $table->increments('id');
             $table->integer('kode_register');
             $table->string('judul');
             $table->string('pengarang');

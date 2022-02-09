@@ -14,7 +14,9 @@ class PenjagaController extends Controller
      */
     public function index()
     {
-        //
+        $penjaga = Penjaga::with('peminjaman')->get();
+        return view('penjaga.index', compact('penjaga'));
+
     }
 
     /**
@@ -24,7 +26,10 @@ class PenjagaController extends Controller
      */
     public function create()
     {
-        //
+        $penjaga = penjaga::all();
+        $peminjaman = Peminjaman::all();
+        return view('penjaga.create', compact('peminjaman'));
+
     }
 
     /**
@@ -35,7 +40,21 @@ class PenjagaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kode_petugas' => 'required',
+            'nama_petugas' => 'required',
+            'alamat' => 'required',
+            'jk' => 'required',
+        ]);
+
+        $penjaga = new Penjaga;
+        $penjaga->kode_petugas = $request->kode_petugas;
+        $penjaga->nama_petugas = $request->nama_petugas;
+        $penjaga->alamat = $request->alamat;
+        $penjaga->jk = $request->jk;
+        $penjaga->save();
+        return redirect()->route('penjaga.index');
+
     }
 
     /**
@@ -46,7 +65,9 @@ class PenjagaController extends Controller
      */
     public function show(penjaga $penjaga)
     {
-        //
+        $penjaga = Penjaga::findOrFail($id);
+        return view('penjaga.show', compact('penjaga'));
+
     }
 
     /**
@@ -57,7 +78,10 @@ class PenjagaController extends Controller
      */
     public function edit(penjaga $penjaga)
     {
-        //
+        $penjaga = Penjaga::findOrFail($id);
+        $peminjaman = Peminjaman::all();
+        return view('penjaga.edit', compact('penjaga', 'peminjaman'));
+
     }
 
     /**
@@ -69,7 +93,21 @@ class PenjagaController extends Controller
      */
     public function update(Request $request, penjaga $penjaga)
     {
-        //
+        $validated = $request->validate([
+            'kode_petugas' => 'required',
+            'nama_petugas' => 'required',
+            'alamat' => 'required',
+            'jk' => 'required',
+        ]);
+
+        $penjaga = Penjaga::findOrFail($id);
+        $penjaga->kode_petugas = $request->kode_petugas;
+        $penjaga->nama_petugas = $request->nama_petugas;
+        $penjaga->alamat = $request->alamat;
+        $penjaga->jk = $request->jk;
+        $penjaga->save();
+        return redirect()->route('pinjam.index');
+
     }
 
     /**
@@ -80,6 +118,9 @@ class PenjagaController extends Controller
      */
     public function destroy(penjaga $penjaga)
     {
-        //
+        $penjaga = Penjaga::findOrFail($id);
+        $penjaga->delete();
+        return redirect()->route('penjaga.index');
+
     }
 }

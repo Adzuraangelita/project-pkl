@@ -14,7 +14,9 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        //
+        $peminjaman = Peminjaman::all();
+        return view('peminjaman.index', compact('peminjaman'));
+
     }
 
     /**
@@ -24,7 +26,8 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('peminjaman.create');
+
     }
 
     /**
@@ -35,7 +38,19 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kode_pinjam' => 'required',
+            'no_anggota' => 'required',
+            'kode_petugas' => 'required',
+        ]);
+
+        $peminjaman = new Peminjaman;
+        $peminjaman->kode_pinjam = $request->kode_pinjam;
+        $peminjaman->no_anggota = $request->no_anggota;
+        $peminjaman->kode_petugas = $request->kode_petugas;
+        $peminjaman->save();
+        return redirect()->route('peminjaman.index');
+
     }
 
     /**
@@ -46,7 +61,9 @@ class PeminjamanController extends Controller
      */
     public function show(peminjaman $peminjaman)
     {
-        //
+        $peminjaman = Peminjaman::findOrFail($id);
+        return view('$peminjaman.show', compact('$peminjaman'));
+
     }
 
     /**
@@ -57,7 +74,9 @@ class PeminjamanController extends Controller
      */
     public function edit(peminjaman $peminjaman)
     {
-        //
+        $peminjaman = Peminjaman::findOrFail($id);
+        return view('peminjaman.edit', compact('peminjaman'));
+
     }
 
     /**
@@ -69,7 +88,19 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, peminjaman $peminjaman)
     {
-        //
+        $validated = $request->validate([
+            'kode_pinjam' => 'required',
+            'no_anggota' => 'required',
+            'kode_petugas' => 'required',
+        ]);
+
+        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->kode_pinjam = $request->kode_pinjam;
+        $peminjaman->no_anggota = $request->no_anggota;
+        $peminjaman->kode_petugas = $request->kode_petugas;
+        $peminjaman->save();
+        return redirect()->route('peminjaman.index');
+
     }
 
     /**
@@ -80,6 +111,9 @@ class PeminjamanController extends Controller
      */
     public function destroy(peminjaman $peminjaman)
     {
-        //
+        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman->delete();
+        return redirect()->route('peminjaman.index');
+
     }
 }

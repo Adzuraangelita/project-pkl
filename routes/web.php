@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PinjamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes([
     'register' => false, //menghilangkan fitur register
-    'reset' => false,//menghilangkakn fitur forgot
+    'reset' => false, //menghilangkakn fitur forgot
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -35,7 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     Route::get('profile', function(){
 //         return 'halaman profile admin';
 //     });
-    
+
 // });
 
 // Route::group(['prefix' => 'pengguna', 'middleware' => [
@@ -49,7 +53,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     Route::get('profile', function(){
 //         return 'halaman profile pengguna';
 //     });
-    
+
 // });
 
 // Route::group(['prefix' => 'pembelian', 'middleware' => [
@@ -63,14 +67,33 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     Route::get('profile', function(){
 //         return 'halaman profile pembelian';
 //     });
-    
-// });
 
-Route::group(['prefix'=>'admin','middleware'=>['auth']], function(){
-    Route::get('buku',function(){
-        return view ('buku.index');
-    })->middleware(['role:admin|pengguna']);
-    Route::get('pengarang',function(){
-        return view ('pengarang.index');
-})->middleware(['role:admin']);
+// });
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    Route::resource('buku', BukuController::class)->middleware(['role:admin']);
+    Route::resource('anggota', AnggotaController::class)->middleware(['role:admin']);
+    Route::resource('pinjam', PinjamController::class)->middleware(['role:admin']);
+    Route::resource('peminjaman', PeminjamanController::class)->middleware(['role:admin']);
 });
+
+Route::get('/home', function () {
+    return view('frontend.home');
+})->name('home');
+Route::get('/about', function () {
+    return view('frontend.about');
+})->name('about');
+Route::get('/services', function () {
+    return view('frontend.services');
+})->name('services');
+Route::get('/books', function () {
+    return view('frontend.books');
+})->name('books');
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
+Route::get('/pulang', function () {
+    return view('frontend.pulang');
+})->name('pulang');
+Route::get('/perahu', function () {
+    return view('frontend.perahu');
+})->name('perahu');
