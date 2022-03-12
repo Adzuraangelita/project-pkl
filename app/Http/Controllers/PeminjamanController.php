@@ -16,7 +16,6 @@ class PeminjamanController extends Controller
     {
         $peminjaman = Peminjaman::all();
         return view('peminjaman.index', compact('peminjaman'));
-
     }
 
     /**
@@ -27,7 +26,6 @@ class PeminjamanController extends Controller
     public function create()
     {
         return view('peminjaman.create');
-
     }
 
     /**
@@ -39,18 +37,23 @@ class PeminjamanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'kode_pinjam' => 'required',
-            'no_anggota' => 'required',
-            'kode_petugas' => 'required',
+            'tgl_pinjam' => 'required',
+            'tgl_kembali' => 'required',
+            'id_buku' => 'required',
+            'id_anggota' => 'required',
+            'id_petugas' => 'required',
+           
         ]);
 
         $peminjaman = new Peminjaman;
-        $peminjaman->kode_pinjam = $request->kode_pinjam;
-        $peminjaman->no_anggota = $request->no_anggota;
-        $peminjaman->kode_petugas = $request->kode_petugas;
+        $peminjaman->tgl_pinjam = $request->tgl_pinjam;
+        $peminjaman->tgl_kembali = $request->tgl_kembali;
+        $peminjaman->id_buku = $request->id_buku;
+        $peminjaman->id_anggota = $request->id_anggota;
+        $peminjaman->id_petugas = $request->id_petugas;
+       
         $peminjaman->save();
         return redirect()->route('peminjaman.index');
-
     }
 
     /**
@@ -59,11 +62,10 @@ class PeminjamanController extends Controller
      * @param  \App\Models\peminjaman  $peminjaman
      * @return \Illuminate\Http\Response
      */
-    public function show(peminjaman $peminjaman)
+    public function show($id)
     {
         $peminjaman = Peminjaman::findOrFail($id);
-        return view('$peminjaman.show', compact('$peminjaman'));
-
+        return view('peminjaman.show', compact('peminjaman'));
     }
 
     /**
@@ -72,11 +74,10 @@ class PeminjamanController extends Controller
      * @param  \App\Models\peminjaman  $peminjaman
      * @return \Illuminate\Http\Response
      */
-    public function edit(peminjaman $peminjaman)
+    public function edit($id)
     {
         $peminjaman = Peminjaman::findOrFail($id);
         return view('peminjaman.edit', compact('peminjaman'));
-
     }
 
     /**
@@ -86,21 +87,26 @@ class PeminjamanController extends Controller
      * @param  \App\Models\peminjaman  $peminjaman
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, peminjaman $peminjaman)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'kode_pinjam' => 'required',
-            'no_anggota' => 'required',
-            'kode_petugas' => 'required',
+            'tgl_pinjam' => 'required',
+            'tgl_kembali' => 'required',
+            'id_buku' => 'required',
+            'id_anggota' => 'required',
+            'id_petugas' => 'required',
+           
         ]);
 
-        $peminjaman = Peminjaman::findOrFail($id);
-        $peminjaman->kode_pinjam = $request->kode_pinjam;
-        $peminjaman->no_anggota = $request->no_anggota;
-        $peminjaman->kode_petugas = $request->kode_petugas;
+        $peminjaman = new Peminjaman;
+        $peminjaman->tgl_pinjam = $request->tgl_pinjam;
+        $peminjaman->tgl_kembali = $request->tgl_kembali;
+        $peminjaman->id_buku = $request->id_buku;
+        $peminjaman->id_anggota = $request->id_anggota;
+        $peminjaman->id_petugas = $request->id_petugas;
+       
         $peminjaman->save();
         return redirect()->route('peminjaman.index');
-
     }
 
     /**
@@ -109,7 +115,7 @@ class PeminjamanController extends Controller
      * @param  \App\Models\peminjaman  $peminjaman
      * @return \Illuminate\Http\Response
      */
-    public function destroy(peminjaman $peminjaman)
+    public function destroy($id)
     {
         $peminjaman = Peminjaman::findOrFail($id);
         $peminjaman->delete();

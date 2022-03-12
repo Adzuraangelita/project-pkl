@@ -18,20 +18,20 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="">Data register</label>
-                                    <input type="text" name="kode_register" value="{{$buku->kode_register}}" class="form-control" readonly>
+                                    <label for="">Data buku</label>
+                                    <input type="text" name="kode_buku" value="{{$buku->kode_buku}}" class="form-control" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Masukan Judul Buku</label>
-                                    <input type="text" name="judul" value="{{ $buku->judul }}" class="form-control" readonly>
+                                    <input type="text" name="judul_buku" value="{{ $buku->judul_buku }}" class="form-control" readonly>
 </div>
                                 <div class="form-group">
-                                    <label for=""> Masukan Nama Pengarang</label>
-                                    <input type="text" name="pemgarang" value="{{$buku->pengarang}}" class="form-control" readonly>
+                                    <label for=""> Masukan Nama Penulis</label>
+                                    <input type="text" name="penulis_buku" value="{{$buku->penulis_buku}}" class="form-control" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for=""> Masukan Nama Penerbit</label>
-                                    <input type="text" name="penerbit" value="{{$buku->penerbit}}" class="form-control" readonly>
+                                    <input type="text" name="penerbit_buku" value="{{$buku->penerbit_buku}}" class="form-control" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for=""> Masukan Tahun Terbit</label>

@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class anggota extends Model
+class petugas extends Model
 {
     use HasFactory;
-    protected $table = "anggotas";
-    protected $fillable = ['kode_anggota', 'nama_anggota', 'jk_anggota','jurusan_anggota','no_telp_anggota','alamat_anggota'];
-    protected $visible = ['kode_anggota', 'nama_anggota', 'jk_anggota','jurusan_anggota','no_telp_anggota','alamat_anggota'];
+    protected $table = "petugas";
+    protected $fillable = ['nama_petugas', 'jabatan_petugas', 'no_telp_petugas','alamat_petugas'];
+    protected $visible = ['nama_petugas', 'jabatan_petugas', 'no_telp_petugas','alamat_petugas'];
     public $timestamps = true;
-
     public function peminjaman()
     {
         return $this->hasMany('App\Models\peminjaman', 'id_buku');

@@ -8,8 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class peminjaman extends Model
 {
     use HasFactory;
-    protected $table = "peminjamen";
-    protected $fillable = ['kode_pinjam', 'no_anggota', 'kode_petugas'];
-    protected $visible = ['kode_pinjam', 'no_anggota', 'kode_petugas'];
+    protected $table = "peminjaman";
+    protected $fillable = ['tgl_pinjam', 'tgl_kembali', 'id_buku','id_anggota','id_petugas'];
+    protected $visible = ['tgl_pinjam', 'tgl_kembali', 'id_buku','id_anggota','id_petugas'];
     public $timestamps = true;
+    public function pengembalian()
+    {
+        return $this->belongsTo('App\Models\pengembalian', 'id_buku','id_anggota','id_petugas');
+    }
+    public function buku()
+    {
+        return $this->belongsTo('App\Models\buku', 'id_buku');
+    }
+    public function peminjaman()
+    {
+        return $this->belongsTo('App\Models\peminjaman', 'id_buku','id_anggota','id_petugas');
+    }
 }

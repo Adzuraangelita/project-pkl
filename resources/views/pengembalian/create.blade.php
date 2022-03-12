@@ -4,7 +4,7 @@
 
 @section('content_header')
 
-    Halaman Anggota
+    Halaman Pengembalian
 
 @stop
 
@@ -15,60 +15,56 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Data Anggota</div>
+                    <div class="card-header">Data pengembalian</div>
                     <div class="card-body">
-                        <form action="{{ route('anggota.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('pengembalian.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
-                                <label for="">Masukan Kode Anggota</label>
-                                <input type="number" name="kode_anggota" class="form-control @error('kode_anggota') is-invalid @enderror">
-                                @error('kode_anggota')
+                                <label for="">Masukan Tanggal pengembalian</label>
+                                <input type="date" name="tgl_pengembalian"
+                                    class="form-control @error('tgl_pengembalian') is-invalid @enderror">
+                                @error('tgl_pengembalian')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Nama Anggota</label>
-                                <input type="text" name="nama_anggota" class="form-control @error('nama_anggota') is-invalid @enderror">
-                                @error('nama_anggota')
+                                <label for="">Masukan Denda</label>
+                                <input type="number" name="denda"
+                                    class="form-control @error('denda') is-invalid @enderror">
+                                @error('denda')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Jenis Kelamin </label>
-                                <input type="text" name="jk_anggota" class="form-control @error('jk_anggota') is-invalid @enderror">
-                                @error('jk_anggota')
+                                <label for="">Masukan Id Buku</label>
+                                <input type="number" name="id_buku"
+                                    class="form-control @error('id_buku') is-invalid @enderror">
+                                @error('id_buku')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Jurusan Anggota </label>
-                                <input type="text" name="jurusan_anggota" class="form-control @error('jurusan_anggota') is-invalid @enderror">
-                                @error('jurusan_anggota')
+                                <label for="">Masukan Id Anggota</label>
+                                <input type="number" name="id_anggota"
+                                    class="form-control @error('id_anggota') is-invalid @enderror">
+                                @error('id_anggota')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan No Telpon Anggota </label>
-                                <input type="text" name="no_telp_anggota" class="form-control @error('no_telp_anggota') is-invalid @enderror">
-                                @error('no_telp_anggota')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Masukan Alamat Anggota</label>
-                                <input type="text" name="alamat_anggota" class="form-control @error('alamat_anggota') is-invalid @enderror">
-                                @error('alamat_anggota')
+                                <label for="">Masukan Id Petugas</label>
+                                <input type="number" name="id_petugas"
+                                    class="form-control @error('id_petugas') is-invalid @enderror">
+                                @error('id_petugas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

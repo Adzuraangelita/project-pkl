@@ -4,7 +4,7 @@
 
 @section('content_header')
 
-    Halaman Pinjam
+    Halaman Petugas
 
 @stop
 
@@ -15,50 +15,46 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Data Pinjam</div>
+                    <div class="card-header">Data Petugas</div>
                     <div class="card-body">
-                        <form action="{{ route('pinjam.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('petugas.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
-
+                           
                             <div class="form-group">
-                                <label for="">Masukan Kode Register</label>
-                                <select name="kode_register"
-                                    class="form-control @error('kode_register') is-invalid @enderror">
-                                    @foreach ($buku as $data)
-                                        <option value="{{ $data->id }}">{{ $data->kode_register }}</option>
-                                    @endforeach
-                                </select>
-                                @error('kode_register')
+                                <label for="">Masukan Nama Petugas</label>
+                                <input type="text" name="nama_petugas"
+                                    class="form-control @error('nama_petugas') is-invalid @enderror">
+                                @error('nama_petugas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Kode Pinjam</label>
-                                <input type="text" name="kode_pinjam"
-                                    class="form-control @error('kode_pinjam') is-invalid @enderror">
-                                @error('kode_pinjam')
+                                <label for="">Masukan Jabatan Petugas</label>
+                                <input type="text" name="jabatan_petugas"
+                                    class="form-control @error('jabatan_petugas') is-invalid @enderror">
+                                @error('jabatan_petugas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Tanggal Pinjam</label>
-                                <input type="date" name="tgl_pinjam"
-                                    class="form-control @error('tgl_pinjam') is-invalid @enderror">
-                                @error('tgl_pinjam')
+                                <label for="">Masukan No Telpon Petugas</label>
+                                <input type="number" name="no_telp_petugas"
+                                    class="form-control @error('no_telp_petugas') is-invalid @enderror">
+                                @error('no_telp_petugas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Tanggal Kembali</label>
-                                <input type="date" name="tgl_kembali"
-                                    class="form-control @error('tgl_kembali') is-invalid @enderror">
-                                @error('tgl_kembali')
+                                <label for="">Masukan Alamat Petugas</label>
+                                <input type="text" name="alamat_petugas"
+                                    class="form-control @error('alamat_petugas') is-invalid @enderror">
+                                @error('alamat_petugas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -14,7 +14,7 @@ return [
     |
      */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Peminjaman buku',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -46,11 +46,11 @@ return [
      */
 
     'logo' => '<b>Peminjaman Buku</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/bookshelf.png',
+    'logo_img' => 'vendor/adminlte/dist/img/book.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -252,19 +252,14 @@ return [
             'can' => 'manage-blog',
         ],
         [
-            'text' => 'buku',
+            'text' => 'Buku',
             'url' => 'admin/buku',
             'icon' => 'fa fa-book',
         ],
         [
-            'text' => 'anggota',
+            'text' => 'Anggota',
             'url' => 'admin/anggota',
             'icon' => 'fa fa-users',
-        ],
-        [
-            'text' => 'Detail Pinjam',
-            'url' => 'admin/pinjam',
-            'icon' => 'far fa-id-card',
         ],
         [
             'text' => 'Peminjaman',
@@ -272,8 +267,13 @@ return [
             'icon' => 'far fa-credit-card',
         ],
         [
-            'text' => 'Penjaga',
-            'url' => 'admin/penjaga',
+            'text' => 'Pengembalian',
+            'url' => 'admin/pengembalian',
+            'icon' => ' far fa-solid fa-clone',
+        ],
+        [
+            'text' => 'Petugas',
+            'url' => 'admin/petugas',
             'icon' => 'far fa-user',
         ],
     ],

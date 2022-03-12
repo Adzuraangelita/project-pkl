@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Data Detail Pinjam</h1>
+                    <h1 class="m-0">Data Pengembalian</h1>
                 </div>
             </div>
         </div>
@@ -12,40 +12,44 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container"><br>
+        Data Pengembalian
+        <hr>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Data Detail Pinjam
-                        <a href="{{ route('pinjam.create') }}" class="btn btn-sm btn-outline-primary float-right">Tambah
-                            Detail</a>
+                        <a href="{{ route('pengembalian.create') }}"
+                            class="btn btn-sm btn-outline-primary float-right">Tambah
+                            Pengembalian</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
-                                    <th>Kode Register</th>
-                                    <th>Kode Pinjam</th>
-                                    <th>Tanggal Pinjam</th>
-                                    <th>Tanggal Kembali</th>
+                                    <th>Tanggal Pengembalian</th>
+                                    <th>Denda</th>
+                                    <th>Id Buku</th>
+                                    <th>Id Anggota</th>
+                                    <th>Id Petugas</th>
                                     <th>Aksi</th>
                                 </tr>
                                 @php $no=1; @endphp
-                                @foreach ($pinjam as $data)
+                                @foreach ($pengembalian as $data)
                                     <tr>
-                                        <td>{{ $data->kode_register }}</td>
-                                        <td>{{ $data->kode_pinjam }}</td>
-                                        <td>{{ $data->tgl_pinjam }}</td>
-                                        <td>{{ $data->tgl_kembali }}</td>
+                                        <td>{{ $data->tgl_pengembalian }}</td>
+                                        <td>{{ $data->denda }}</td>
+                                        <td>{{ $data->id_buku }}</td>
+                                        <td>{{ $data->id_anggota }}</td>
+                                        <td>{{ $data->id_petugas }}</td>
                                         <td>
-                                            <form action="{{ route('pinjam.destroy', $data->id) }}" method="post">
+                                            <form action="{{ route('pengembalian.destroy', $data->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <a href="{{ route('pinjam.edit', $data->id) }}"
+                                                {{-- <a href="{{ route('pengembalian.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
-                                                <a href="{{ route('pinjam.show', $data->id) }}"
-                                                    class="btn btn-outline-warning">Show</a>
+                                                <a href="{{ route('pengembalian.show', $data->id) }}"
+                                                    class="btn btn-outline-warning">Show</a> --}}
                                                 <button type="submit" class="btn btn-outline-danger"
                                                     onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                             </form>

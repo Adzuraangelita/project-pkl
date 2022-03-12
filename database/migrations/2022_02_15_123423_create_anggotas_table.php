@@ -14,12 +14,13 @@ class CreateAnggotasTable extends Migration
     public function up()
     {
         Schema::create('anggotas', function (Blueprint $table) {
-         
-            $table->integer('no_anggota')->unsigned();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->foreign('no_anggota')->references('id')
-                ->on('peminjamen')->onUpdate('cascade')->onDelete('cascade');
+            $table->id();
+            $table->integer('kode_anggota');
+            $table->string('nama_anggota');
+            $table->string('jk_anggota');
+            $table->string('jurusan_anggota');
+            $table->integer('no_telp_anggota');
+            $table->string('alamat_anggota');
             $table->timestamps();
         });
     }

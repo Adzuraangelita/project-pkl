@@ -9,13 +9,14 @@ class buku extends Model
 {
     use HasFactory;
     protected $table = "bukus";
-    protected $fillable = ['kode_register', 'judul', 'pengarang' . 'penerbit', 'thn_terbit', 'cover'];
-    protected $visible = ['kode_register', 'judul', 'pengarang' . 'penerbit', 'thn_terbit', 'cover'];
+    protected $fillable = ['kode_buku', 'judul_buku', 'penulis_buku', 'penerbit_buku', 'thn_terbit'];
+    protected $visible = ['kode_buku', 'judul_buku', 'penulis_buku', 'penerbit_buku', 'thn_terbit'];
+    
     public $timestamps = true;
 
     public function buku()
     {
-        return $this->belongsTo('App\Models\buku');
+        return $this->hasMany('App\Models\buku', 'buku_id');
     }
     public function image()
     {

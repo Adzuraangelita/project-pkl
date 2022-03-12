@@ -18,44 +18,64 @@
                 <div class="card">i
                     <div class="card-header">Data Anggota</div>
                     <div class="card-body">
-                        <form action="{{ route('pinjam.update', $pinjam->id) }}" method="post">
+                        <form action="{{ route('anggota.update', $anggota->id) }}" method="post">
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="">Masukan Kode Register</label>
-                                <input type="number" name="kode_kategori" value="{{ $pinjam->kode_kategori }}"
-                                    class="form-control @error('kode_kategori') is-invalid @enderror">
-                                @error('kode_kategori')
+                                <label for="">Masukan Kode Anggota</label>
+                                <input type="number" name="kode_anggota" value="{{ $anggota->kode_anggota }}"
+                                    class="form-control @error('kode_anggota') is-invalid @enderror">
+                                @error('kode_anggota')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Kode Pinjam</label>
-                                <input type="text" name="kode_pinjam" value="{{ $pinjam->kode_pinjam }}"
-                                    class="form-control @error('kode_pinjam') is-invalid @enderror">
-                                @error('kode_pinjam')
+                                <label for="">Masukan Nama Anggota</label>
+                                <input type="text" name="nama_anggota" value="{{ $anggota->nama_anggota }}"
+                                    class="form-control @error('nama_anggota') is-invalid @enderror">
+                                @error('nama_anggota')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Tanggal Pinjam</label>
-                                <input type="date" name="tgl_pinjam" value="{{ $pinjam->tgl_pinjam }}"
-                                    class="form-control @error('tgl_pinjam') is-invalid @enderror">
-                                @error('tgl_pinjam')
+                                <label for="">Masukan Jenis Kelamin</label>
+                                <input type="text" name="jk_anggota" value="{{ $anggota->jk_anggota }}"
+                                    class="form-control @error('jk_anggota') is-invalid @enderror">
+                                @error('jk_anggota')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Tanggal Kembali</label>
-                                <input type="date" name="tgl_kembali" value="{{ $pinjam->tgl_kembali }}"
-                                    class="form-control @error('tgl_kembali') is-invalid @enderror">
-                                @error('tgl_kembali')
+                                <label for="">Masukan Jurusan Anggota</label>
+                                <input type="text" name="jurusan_anggota" value="{{ $anggota->jurusan_anggota }}"
+                                    class="form-control @error('jurusan_anggota') is-invalid @enderror">
+                                @error('jurusan_anggota')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="">Masukan No Telpon Anggota</label>
+                                <input type="number" name="no_telp_anggota" value="{{ $anggota->no_telp_anggota }}"
+                                    class="form-control @error('no_telp_anggota') is-invalid @enderror">
+                                @error('no_telp_anggota')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="">Masukan Alamat Anggota</label>
+                                <input type="text" name="alamat_anggota" value="{{ $anggota->alamat_anggota }}"
+                                    class="form-control @error('alamat_anggota') is-invalid @enderror">
+                                @error('alamat_anggota')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -3,7 +3,8 @@
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PeminjamanController;
-use App\Http\Controllers\PinjamController;
+use App\Http\Controllers\PengembalianController;
+use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,28 +73,29 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('buku', BukuController::class)->middleware(['role:admin']);
     Route::resource('anggota', AnggotaController::class)->middleware(['role:admin']);
-    Route::resource('pinjam', PinjamController::class)->middleware(['role:admin']);
     Route::resource('peminjaman', PeminjamanController::class)->middleware(['role:admin']);
+    Route::resource('pengembalian', PengembalianController::class)->middleware(['role:admin']);
+    Route::resource('petugas', PetugasController::class)->middleware(['role:admin']);
 });
 
-Route::get('/home', function () {
-    return view('frontend.home');
-})->name('home');
-Route::get('/about', function () {
-    return view('frontend.about');
-})->name('about');
-Route::get('/services', function () {
-    return view('frontend.services');
-})->name('services');
-Route::get('/books', function () {
-    return view('frontend.books');
-})->name('books');
-Route::get('/contact', function () {
-    return view('frontend.contact');
-})->name('contact');
-Route::get('/pulang', function () {
-    return view('frontend.pulang');
-})->name('pulang');
-Route::get('/perahu', function () {
-    return view('frontend.perahu');
-})->name('perahu');
+// Route::get('/home', function () {
+//     return view('frontend.home');
+// })->name('home');
+// Route::get('/about', function () {
+//     return view('frontend.about');
+// })->name('about');
+// Route::get('/services', function () {
+//     return view('frontend.services');
+// })->name('services');
+// Route::get('/books', function () {
+//     return view('frontend.books');
+// })->name('books');
+// Route::get('/contact', function () {
+//     return view('frontend.contact');
+// })->name('contact');
+// Route::get('/pulang', function () {
+//     return view('frontend.pulang');
+// })->name('pulang');
+// Route::get('/perahu', function () {
+//     return view('frontend.perahu');
+// })->name('perahu');

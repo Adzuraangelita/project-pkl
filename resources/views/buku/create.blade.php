@@ -21,10 +21,10 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="">Masukan Kode Register</label>
-                                <input type="text" name="kode_register"
-                                    class="form-control @error('kode_register') is-invalid @enderror">
-                                @error('kode_register')
+                                <label for="">Masukan Kode Buku</label>
+                                <input type="text" name="kode_buku"
+                                    class="form-control @error('kode_buku') is-invalid @enderror">
+                                @error('kode_buku')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -32,18 +32,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Masukan Judul Buku</label>
-                                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror">
-                                @error('judul')
+                                <input type="text" name="judul_buku" class="form-control @error('judul_buku') is-invalid @enderror">
+                                @error('judul_buku')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Nama Pengarang</label>
-                                <input type="text" name="pengarang"
-                                    class="form-control @error('pengarang') is-invalid @enderror">
-                                @error('pengarang')
+                                <label for="">Masukan Nama Penulis</label>
+                                <input type="text" name="penulis_buku"
+                                    class="form-control @error('penulis_buku') is-invalid @enderror">
+                                @error('penulis_buku')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -51,9 +51,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Masukan Nama Penerbit</label>
-                                <input type="text" name="penerbit"
-                                    class="form-control @error('penerbit') is-invalid @enderror">
-                                @error('penerbit')
+                                <input type="text" name="penerbit_buku"
+                                    class="form-control @error('penerbit_buku') is-invalid @enderror">
+                                @error('penerbit_buku')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
