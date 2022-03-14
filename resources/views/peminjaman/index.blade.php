@@ -39,7 +39,7 @@
                                     <tr>
                                         <td>{{ $data->tgl_pinjam }}</td>
                                         <td>{{ $data->tgl_kembali }}</td>
-                                        <td>{{ $data->id_buku }}</td>
+                                        <td>{{ $data->buku->kode_buku }}</td>
                                         <td>{{ $data->id_anggota }}</td>
                                         <td>{{ $data->id_petugas }}</td>
                                         <td>

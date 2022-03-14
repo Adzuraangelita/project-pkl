@@ -42,8 +42,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Masukan Id Buku</label>
-                                <input type="number" name="id_buku"
-                                    class="form-control @error('id_buku') is-invalid @enderror">
+                                <select name="id_buku" id="" class="form-control">
+                                    @foreach($buku as $data)
+                                        <option value="{{ $data->id }}">{{ $data->judul_buku }}</option>
+                                    @endforeach
+                                </select>
+                              
                                 @error('id_buku')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -52,8 +56,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Masukan Id Anggota</label>
-                                <input type="number" name="id_anggota"
-                                    class="form-control @error('id_anggota') is-invalid @enderror">
+                                <select name="id_anggota" id="" class="form-control">
+                              @foreach($anggota as $data)
+                              <option value="{{ $data->id }}">{{ $data->nama_anggota }}</option>
+
+                              @endforeach
+                              </select>
+
                                 @error('id_anggota')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -62,8 +71,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Masukan Id Petugas</label>
-                                <input type="number" name="id_petugas"
-                                    class="form-control @error('id_petugas') is-invalid @enderror">
+                               <select name="id_petugas" id="" class="form-control">
+                                   @foreach($petugas as $data)
+                                    <option value="{{ $data->id }}">{{ $data->nama_petugas }}</option>
+                                   @endforeach
+                               </select>
                                 @error('id_petugas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

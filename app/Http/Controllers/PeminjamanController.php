@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\peminjaman;
+use App\Models\buku;
+use App\Models\anggota;
+use App\Models\petugas;
+
 use Illuminate\Http\Request;
 
 class PeminjamanController extends Controller
@@ -25,7 +29,10 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view('peminjaman.create');
+        $buku = buku::all();
+        $anggota = anggota::all();
+        $petugas = petugas::all();
+        return view('peminjaman.create', compact('buku', 'anggota', 'petugas'));
     }
 
     /**
