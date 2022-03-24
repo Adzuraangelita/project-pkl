@@ -29,7 +29,7 @@
                                 <tr>
                                     <th>Tanggal Pengembalian</th>
                                     <th>Denda</th>
-                                    <th>Id Buku</th>
+                                     <th>Id Buku</th>
                                     <th>Id Anggota</th>
                                     <th>Id Petugas</th>
                                     <th>Aksi</th>
