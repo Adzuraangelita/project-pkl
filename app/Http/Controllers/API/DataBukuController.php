@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Data_peserta;
+use App\Models\buku;
 use Illuminate\Http\Request;
 
 class DataBukuController extends Controller
