@@ -276,6 +276,11 @@ return [
             'url' => 'admin/petugas',
             'icon' => 'far fa-user',
         ],
+        [
+            'text' => 'Laporan',
+            'url' => 'admin/cetak-laporan',
+            'icon' => 'far fa-folder-open',
+        ],
     ],
 
     /*

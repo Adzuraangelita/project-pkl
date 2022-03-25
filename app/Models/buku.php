@@ -9,8 +9,8 @@ class buku extends Model
 {
     use HasFactory;
     protected $table = "bukus";
-    protected $fillable = ['kode_buku', 'judul_buku', 'penulis_buku', 'penerbit_buku', 'thn_terbit'];
-    protected $visible = ['kode_buku', 'judul_buku', 'penulis_buku', 'penerbit_buku', 'thn_terbit'];
+    protected $fillable = ['kode_buku', 'judul_buku', 'penulis_buku', 'penerbit_buku', 'cover', 'thn_terbit'];
+    protected $visible = ['kode_buku', 'judul_buku', 'penulis_buku', 'penerbit_buku', 'cover','thn_terbit'];
     
     public $timestamps = true;
 
