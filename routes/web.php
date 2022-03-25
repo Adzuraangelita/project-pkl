@@ -78,7 +78,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('petugas', PetugasController::class)->middleware(['role:admin']);
 
     Route::get('/cetak-laporan', 'App\Http\Controllers\PeminjamanController@cetakform')->name('cetak-laporan');
-    Rote::get('/cetak-laporan-pertanggal/{tglawal}/{tglakhir}',
+    Route::get('/cetak-laporan-pertanggal/{tglawal}/{tglakhir}',
     'App\Http\Controllers\PeminjamanController@cetakPertanggal')
     ->name('cetak-laporan-pertanggal');
 });
