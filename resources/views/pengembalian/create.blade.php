@@ -30,16 +30,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="">Masukan Denda</label>
-                                <input type="number" name="denda"
-                                    class="form-control @error('denda') is-invalid @enderror">
-                                @error('denda')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="">Masukan Id Buku</label>
                                 <input type="number" name="id_buku"

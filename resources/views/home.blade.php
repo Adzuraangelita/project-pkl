@@ -11,7 +11,7 @@
 
 @section('content')
 
-        <center><img src="{{asset('assets/images/roman1.jpg')}}" alt="..." weight="10px" height="500px"/></center>
+        <center><img src="{{asset('assets/images/logo.png')}}" alt="..." weight="10px" height="500px"/></center>
 @endsection
 
 @section('css')

@@ -46,10 +46,10 @@
                                             <form action="{{ route('peminjaman.destroy', $data->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                {{-- <a href="{{ route('peminjaman.edit', $data->id) }}"
+                                                <a href="{{ route('peminjaman.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
                                                 <a href="{{ route('peminjaman.show', $data->id) }}"
-                                                    class="btn btn-outline-warning">Show</a> --}}
+                                                    class="btn btn-outline-warning">Show</a> 
                                                 <button type="submit" class="btn btn-outline-danger"
                                                     onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                             </form>

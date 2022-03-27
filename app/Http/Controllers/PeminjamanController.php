@@ -35,13 +35,17 @@ class PeminjamanController extends Controller
         return view('peminjaman.create', compact('buku', 'anggota', 'petugas'));
     }
 
-    public function cetakFrom() 
+    public function cetakForm()
     {
         return view('peminjaman.cetak');
     }
 
-    $cetak = peminjaman::whereDate('tanggal_pinjam', '>=', $tglawal)->whereDate('tanggal_pinjam', '>=', $tglakhir)->get();
-    return view('peminjaman.cetak-pertanggal', compact('cetak'));
+    public function cetakPertanggal($tglawal, $tglakhir)
+    {
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetak = Peminjaman::whereDate('tgl_pinjam', '>=', $tglawal)->whereDate('tgl_pinjam', '<=', $tglakhir)->get();
+        return view('peminjaman.cetak-pertanggal', compact('cetak'));
+    }
     /**
      * Store a newly created resource in storage.
      *

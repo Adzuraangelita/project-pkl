@@ -28,7 +28,7 @@
                             <table class="table">
                                 <tr>
                                     <th>Tanggal Pengembalian</th>
-                                    <th>Denda</th>
+                                   
                                      <th>Id Buku</th>
                                     <th>Id Anggota</th>
                                     <th>Id Petugas</th>
@@ -38,7 +38,7 @@
                                 @foreach ($pengembalian as $data)
                                     <tr>
                                         <td>{{ $data->tgl_pengembalian }}</td>
-                                        <td>{{ $data->denda }}</td>
+                                      
                                         <td>{{ $data->id_buku }}</td>
                                         <td>{{ $data->id_anggota }}</td>
                                         <td>{{ $data->id_petugas }}</td>

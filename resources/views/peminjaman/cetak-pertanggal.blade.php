@@ -41,7 +41,7 @@
     <center>
         <table width="710">
             <tr>
-                <td><img src="{{ asset('vendor/adminlte/dist/img/s.jpg') }}" width="70" height="70"></td>
+                <td><img src="{{asset('assets/images/logo.png')}}" width="70" height="70"></td>
                 <td>
                     <center>
                         <font size="6"><b>PEMINJAMAN BUKU PERPUSTAKAAN</b></font><br>
@@ -84,7 +84,6 @@
             @php $no=1; @endphp
             @foreach ($cetak as $data)
                 <tr>
-                    <td style="background-color: rgb(136, 236, 223);">{{ $no++ }}</td>
                     <td>{{ $data->tgl_pinjam }}</td>
                     <td>{{ $data->tgl_kembali }}</td>
                     <td>{{ $data->buku->kode_buku }}</td>
